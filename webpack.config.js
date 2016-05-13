@@ -9,7 +9,8 @@ module.exports = {
     loaders: [
        { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },
        { test: /\.html$/, loader: 'raw' },
-       { test: /\.styl$/, loader: 'style!css!stylus' },
+       { test: /\.jade$/, loader: "raw!jade-html" },
+       { test: /\.sass$/, loader: 'style!css!sass' },
        { test: /\.css$/, loader: 'style!css' }
     ]
   },
