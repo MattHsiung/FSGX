@@ -11,20 +11,6 @@
   </a>
 </p>
 
-
-This repo serves as a minimal starter for those looking to get up-and-running with Angular and ES6, using [Gulp](http://gulpjs.com/) and [Webpack](http://webpack.github.io/) for the build process.
-**This seed is not a Yeoman generator.** It's a minimal starter with tasks for building the boilerplate. **These are its features**:
-* The best practice in directory/file organization for Angular (allowing for infinite horizontal app scaling)
-* A ready-to-go build system for working with [ES6](https://git.io/es6features)
-* Tasks for generating additional boilerplate Angular components
-* A full testing system in place
-* [Stylus](https://learnboost.github.io/stylus/) support
-
-**Check out the [JSPM version](https://github.com/angularclass/NG6-starter/tree/jspm)--an alternative to Webpack as an ES6 build system.**
-
-> If you're looking for a preliminary [Angular 2](https://angular.io/) build, please use the [angular2-webpack-starter](https://github.com/angularclass/angular2-webpack-starter).
-___
-
 # Table of Contents
 * [Walkthrough](#walkthrough)
     * [Build System](#build-system)
@@ -155,20 +141,3 @@ For example, running `gulp component --name signup --parent auth` will create a 
 Running `gulp component --name footer --parent ../common` creates a `footer` component at `client/app/common/footer`.  
 
 Because the argument to `--name` applies to the folder name **and** the actual component name, make sure to camelcase the component names.
-
-# Starter Kit Support and Questions
-> Contact us, anytime, regarding anything about this project.
-
-* [Gitter: angularclass/NG6-starter](https://gitter.im/angularclass/NG6-starter)
-* [Twitter: @AngularClass](https://twitter.com/AngularClass)
-
-___
-
-enjoy — **AngularClass** 
-
-<br><br>
-
-[![AngularClass](https://cloud.githubusercontent.com/assets/1016365/9863770/cb0620fc-5af7-11e5-89df-d4b0b2cdfc43.png  "Angular Class")](https://angularclass.com)
-##[AngularClass](https://angularclass.com)
-> Learn AngularJS, Angular 2, and Modern Web Development from the best.
-> Looking for corporate Angular training, want to host us, or Angular consulting? scott@angularclass.com
