@@ -78,8 +78,9 @@ gulp.task('serve', () => {
 
   serve({
     port: process.env.PORT || 3000,
+    proxy: "localhost:1337",
     open: false,
-    server: {baseDir: root},
+    // server: {baseDir: root},
     middleware: [
       historyApiFallback(),
       webpackDevMiddelware(compiler, {
@@ -96,7 +97,6 @@ gulp.task('serve', () => {
 });
 
 gulp.task('watch', ['serve']);
-
 gulp.task('component', () => {
   const cap = (val) => {
     return val.charAt(0).toUpperCase() + val.slice(1);

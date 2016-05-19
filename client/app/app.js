@@ -1,5 +1,6 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import io from 'socket.io-client';
 import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
@@ -10,11 +11,31 @@ angular.module('app', [
     Common.name,
     Components.name
   ])
-  .config(($locationProvider) => {
+  .config(($urlRouterProvider, $locationProvider) => {
     "ngInject";
-    // @see: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
-    // #how-to-configure-your-server-to-work-with-html5mode
     $locationProvider.html5Mode(true).hashPrefix('!');
+    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.when('/auth/:provider', () => window.location.reload());
   })
 
-  .component('app', AppComponent);
+  .component('app', AppComponent)
+
+  .run(function ($rootScope, AuthFactory, $state) {
+    "ngInject";
+    let destinationStateRequiresAuth = (state) => state.data && state.data.authenticate;
+
+    $rootScope.$on('$stateChangeStart', (event, toState, toParams) => {
+
+      if (!destinationStateRequiresAuth(toState)) return;
+
+      if (AuthFactory.isAuthenticated()) return;
+
+      event.preventDefault();
+
+      AuthFactory.getLoggedInUser()
+        .then((user) => {
+          (user) ? $state.go(toState.name, toParams) : $state.go('login');
+        });
+    });
+  });
+

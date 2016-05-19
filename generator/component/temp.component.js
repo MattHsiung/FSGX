@@ -1,6 +1,6 @@
-import template from './<%= name %>.html';
+import template from './<%= name %>.jade';
 import controller from './<%= name %>.controller';
-import './<%= name %>.styl';
+import './<%= name %>.sass';
 
 let <%= name %>Component = {
   restrict: 'E',
