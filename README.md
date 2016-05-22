@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="http://s32.postimg.org/o025ahcqt/fsgx_logo.png">
+  <img src="http://s32.postimg.org/kmz8cz8xh/FSGX_logo_lg.png">
   <h1> FullStack Generator X</h1>
     <span>(WIP)</span>
 </div>
