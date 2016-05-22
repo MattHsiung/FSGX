@@ -4,6 +4,11 @@
     <span>(WIP)</span>
 </div>
 
+# Instructions
+## In two terminals:
+### 1. npm start 
+### 2. gulp 
+### 3. Localhost:3000 
 
 <p align="center">
   <a href="https://github.com/FullstackAcademy/fsg" target="_blank">
