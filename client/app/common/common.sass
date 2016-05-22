@@ -1,13 +1,19 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto)
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700);
 
 //Global Colors
-$primaryColor: #0277bd
-$accentColor: #1de9b6
-$bgColor: #efefef
-$darkBgColor: #263238
-$lightBgColor: #37474f
-$lightTextColor: #f5f5f5
-$darkTextColor: #212121
+$primaryColor: #2ea3eb
+$accentColor: #20cc9f
+$bgColor: #252e3e
+$edge: #333d59
+$darkBgColor: #1e2533
+$lightBgColor: #343a46
+$lightTextColor: #cad4ec
+$darkTextColor: #687690
+$radialBg: radial-gradient(at top, #333A46, #181E2C)
+$primaryGradient: radial-gradient(at top, $accentColor, $primaryColor)
+
+$mainFont: 'Lato'
+$defaultWeight: 100
 
 *, *::after, *::before
 	box-sizing: border-box
@@ -15,7 +21,8 @@ $darkTextColor: #212121
 //body = viewport
 html, body
 	height: 100vh
-  	font-family: 'Roboto', sans-serif
+  	font-family: 'Lato'
+  	font-weight: 100
 
 
 //opinionated resets

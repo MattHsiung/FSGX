@@ -2,19 +2,22 @@
 navbar
   position: relative
   z-index: 100
-  box-shadow: 16px 0px 38px rgba(0,0,0,0.12)
+  box-shadow: 0px 16px 38px rgba(0,0,0,0.12)
   .navbar
-    background-color: $primaryColor
-    padding: 1rem 10vw
+    background-color: $darkBgColor
+    padding: 0.5rem 10vw
     display: flex
     justify-content: space-between
     align-items: center
     .logo
       color: $lightTextColor
+      img
+        height: 1.5em
     .nav-links
       .nav-link
-        color: $lightTextColor
+        color: $darkTextColor
         font-size: 2em
+        margin-left: 1em
         &.isActive
-          color: $accentColor
+          color: $lightTextColor
           

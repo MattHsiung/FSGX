@@ -6,8 +6,7 @@ import Components from './components/components';
 import AppComponent from './app.component';
 import 'normalize.css';
 import './app.sass';
-
-//TODO: MAKE ERROR/MODAL/ALERT SERVICE
+import './deleteMe.sass';
 
 angular.module('app', [
     uiRouter,
