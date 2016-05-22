@@ -4,6 +4,7 @@
   "description": "Starter for Angular + ES6 + (Webpack or JSPM)",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon --watch server -e js,html server/start.js",
     "test": "karma start"
   },
   "dependencies": {
