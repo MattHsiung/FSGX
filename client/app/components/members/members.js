@@ -1,6 +1,5 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-// import membersComponent from './members.component';
 
 let membersModule = angular.module('members', [
   uiRouter
@@ -9,14 +8,12 @@ let membersModule = angular.module('members', [
 .config(($stateProvider) => {
 	"ngInject";
     $stateProvider
-    	.state('membersOnly', {
+    	.state('members', {
         	url: '/members-area',
         	template: '<h1>members-only area</h1>',
-	        data: { authenticate: true }
+	        requireAuth: true
     	});
-})
-
-// .component('members', membersComponent);
+});
 
 export default membersModule;
 

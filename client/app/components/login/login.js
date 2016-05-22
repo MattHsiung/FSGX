@@ -11,7 +11,10 @@ let loginModule = angular.module('login', [
     $stateProvider
         .state('login', {
             url: '/login',
-            template: '<login></login>'
+            template: `
+            <section id="login-page">
+            	<login></login>
+            </section>`
     });
 })
 

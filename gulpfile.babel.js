@@ -6,6 +6,7 @@ import path     from 'path';
 import sync     from 'run-sequence';
 import rename   from 'gulp-rename';
 import template from 'gulp-template';
+import todo     from 'gulp-todoist';
 import fs       from 'fs';
 import yargs    from 'yargs';
 import lodash   from 'lodash';
@@ -45,6 +46,11 @@ let paths = {
   dest: path.join(__dirname, 'dist')
 };
 
+gulp.task('todo', () => {
+  return gulp.src(['client/app/**/*.js'])
+    .pipe(todo({silent: false, verbose: true}));
+});
+
 // use webpack.config.js to build modules
 gulp.task('webpack', ['clean'], (cb) => {
   const config = require('./webpack.dist.config');
@@ -65,7 +71,7 @@ gulp.task('webpack', ['clean'], (cb) => {
   });
 });
 
-gulp.task('serve', () => {
+gulp.task('serve', ['todo'], () => {
   const config = require('./webpack.dev.config');
   config.entry.app = [
     // this modules required to make HRM working

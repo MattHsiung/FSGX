@@ -1,16 +1,20 @@
 @import '../common'
-
-.navbar
-  height: 6.5rem
-  background-color: $primaryColor
-  padding: 1rem
-  .nav-links
-  .logo
-    display: inline-block
-  .logo
-    color: $lightTextColor
-    margin-right: 50% 
-  .nav-links
-    span
+navbar
+  position: relative
+  z-index: 100
+  box-shadow: 16px 0px 38px rgba(0,0,0,0.12)
+  .navbar
+    background-color: $primaryColor
+    padding: 1rem 10vw
+    display: flex
+    justify-content: space-between
+    align-items: center
+    .logo
       color: $lightTextColor
-      font-size: 1.6rem
+    .nav-links
+      .nav-link
+        color: $lightTextColor
+        font-size: 2em
+        &.isActive
+          color: $accentColor
+          

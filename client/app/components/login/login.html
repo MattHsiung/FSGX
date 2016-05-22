@@ -1,15 +1,15 @@
 <form id="login-form" name="vm.loginForm" ng-submit="vm.loginForm.$valid && vm.sendLogin(vm.login)">
-    <alert type="danger" ng-show="vm.error">
-        {{ vm.error }}
+    <alert ng-show="vm.error" ng-click="vm.resetError()">
+        <h4>{{ vm.error }}</h4>
     </alert>
 
     <div class="form-group">
         <label for="email">Email address</label>
-        <input type="text" ng-model="vm.login.email" class="form-control" id="email" placeholder="Enter email">
+        <input type="text" ng-model="vm.login.email" id="email" placeholder="Email">
     </div>
     <div class="form-group">
         <label for="login-password">Password</label>
-        <input type="password" ng-model="vm.login.password" class="form-control" id="login-password" placeholder="Password">
+        <input type="password" ng-model="vm.login.password" id="login-password" placeholder="Password">
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit">Login</button>
 </form>

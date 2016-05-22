@@ -5,6 +5,9 @@ import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
 import 'normalize.css';
+import './app.sass';
+
+//TODO: MAKE ERROR/MODAL/ALERT SERVICE
 
 angular.module('app', [
     uiRouter,
@@ -22,20 +25,13 @@ angular.module('app', [
 
   .run(function ($rootScope, AuthFactory, $state) {
     "ngInject";
-    let destinationStateRequiresAuth = (state) => state.data && state.data.authenticate;
-
     $rootScope.$on('$stateChangeStart', (event, toState, toParams) => {
 
-      if (!destinationStateRequiresAuth(toState)) return;
-
-      if (AuthFactory.isAuthenticated()) return;
-
-      event.preventDefault();
-
-      AuthFactory.getLoggedInUser()
-        .then((user) => {
-          (user) ? $state.go(toState.name, toParams) : $state.go('login');
-        });
+      if (toState.requireAuth && !AuthFactory.isAuthenticated()){
+        $state.go("login");
+        event.preventDefault();
+      };
+    
     });
   });
 

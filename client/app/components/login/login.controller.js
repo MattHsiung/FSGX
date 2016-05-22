@@ -3,8 +3,12 @@ class LoginController {
         this.name = 'login';
         this.login = {};
         this.error = null;
+        //Dependencies
         this.AuthFactory = AuthFactory;
         this.$state = $state;
+    }
+    resetError (){
+        this.error = null;
     }
 
     sendLogin (loginInfo) {

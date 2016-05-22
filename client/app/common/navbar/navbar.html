@@ -1,10 +1,22 @@
 <nav class="navbar">
   <div class="logo">
-    <h1><a ui-sref="home">{{ vm.name }}</a></h1>
+    <h4><a ui-sref="home">YOUR LOGO</a></h4>
   </div>
   <div class="nav-links">
-    <span><a ui-sref="about">about</a></span>
-    <span><a ui-sref="login">login</a></span>
-    
+    <a ui-sref="about" class="nav-link" ui-sref-active="isActive">
+      About
+    </a>
+    <a ng-if="!vm.auth.user" ui-sref="login" class="nav-link" ui-sref-active="isActive">
+      Login
+    </a>
+    <a ng-if="vm.auth.user" href="#" ng-click="vm.logout()" class="nav-link">
+      Logout
+    </a>
+    <a ng-if="vm.auth.user" ui-sref="members" class="nav-link" ui-sref-active="isActive">
+      {{vm.auth.user.email}}
+    </a>   
+    <a ui-sref="members" class="nav-link" ui-sref-active="isActive">
+      MembersOnly
+    </a>   
   </div>
 </nav>
