@@ -4,7 +4,7 @@ class NavbarController {
 	  	this.auth = AuthFactory.getLoggedInUser();
 	  	//Dependencies
 	  	this.AuthFactory = AuthFactory;
-      	this.$state = $state;
+    	this.$state = $state;
   	}
 
     logout () {
