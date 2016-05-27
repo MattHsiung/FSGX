@@ -84,9 +84,8 @@ gulp.task('serve', ['todo'], () => {
 
   serve({
     port: process.env.PORT || 3000,
-    proxy: "localhost:1337",
+    proxy: "localhost:9000",
     open: false,
-    // server: {baseDir: root},
     middleware: [
       historyApiFallback(),
       webpackDevMiddelware(compiler, {

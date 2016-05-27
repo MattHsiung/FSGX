@@ -1,5 +1,5 @@
 let AuthInterceptorFactory = function ($rootScope, $q, AUTH_EVENTS) {
-
+console.log('hello')
 	const statusDict = {
 		401: AUTH_EVENTS.notAuthenticated,
 		403: AUTH_EVENTS.notAuthorized,

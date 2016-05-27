@@ -13,6 +13,4 @@ let FSAModule = angular.module('FSA', [])
     .push(['$injector', $injector => $injector.get('AuthInterceptor')]);
 }]);
 
-
-
 export default FSAModule;
