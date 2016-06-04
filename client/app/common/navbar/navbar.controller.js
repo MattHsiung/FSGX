@@ -1,6 +1,5 @@
 class NavbarController {
   	constructor(AuthFactory, $rootScope, AUTH_EVENTS, $state) {
-	    this.name = 'navbar';
 	  	this.auth = AuthFactory.getLoggedInUser();
 	  	//Dependencies
 	  	this.AuthFactory = AuthFactory;

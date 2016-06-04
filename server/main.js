@@ -13,8 +13,6 @@ var createApplication = function () {
     server.on('request', app); // Attach the Express application.
 };
 
-
-
 var startServer = function () {
 
     var PORT = process.env.PORT || 9000;
@@ -29,6 +27,3 @@ startDb.then(createApplication).then(startServer).catch(function (err) {
     console.error(chalk.red(err.stack));
     process.kill(1);
 });
-
-
-
