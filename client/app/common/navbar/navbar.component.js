@@ -4,7 +4,9 @@ import './navbar.sass';
 
 let navbarComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {
+  	user: '<'
+  },
   template,
   controller,
   controllerAs: 'vm'

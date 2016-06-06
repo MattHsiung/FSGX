@@ -1,20 +1,30 @@
-let AuthFactory = function ($http, $rootScope, AUTH_EVENTS, $q) {
+let AuthFactory = function ($http, AUTH_EVENTS, $auth) {
 
     let auth = {user: null};
 
-    let isAuthenticated = () => auth.user;
+    let isAuthenticated = () => !!auth.user;
 
-    let getLoggedInUser = (session) => {
-        if(!session) return auth;
-        return $http.get('/session')
-            .then(loginSuccess)
-            .catch(() => null);
+    let getLoggedInUser = () => auth;
+
+    let getUser = () => {
+        $http.get('/api/me')
+            .then(({data}) => auth.user = data)
+            .catch(res => console.log('fail', res));
     };
 
     let login = (credentials) => {
-        return $http.post('/login', credentials)
-            .then(loginSuccess)
-            .catch(() => $q.reject({ message: 'Invalid login credentials.' }));
+        return $auth.signup(credentials)
+            .then(res => {
+                $auth.setToken(res);
+                getUser();
+            })
+            .catch(({data}) => data.message );
+    };
+
+    let authenticate = (provider) => {
+        return $auth.authenticate(provider)
+            .then(getUser)
+            .catch(({data}) => data.message );
     };
 
     let logout = () => {
@@ -22,11 +32,9 @@ let AuthFactory = function ($http, $rootScope, AUTH_EVENTS, $q) {
             .then(() => auth.user = null);
     };
 
-    let loginSuccess = ({data}) => auth.user = data.user;
-
-    return { login, logout, getLoggedInUser, isAuthenticated};
+    return { login, logout, getLoggedInUser, getUser, isAuthenticated, authenticate};
 };
 
-AuthFactory.$inject = ['$http', '$rootScope', 'AUTH_EVENTS', '$q'];
+AuthFactory.$inject = ['$http', 'AUTH_EVENTS', '$auth'];
 
 export default AuthFactory;

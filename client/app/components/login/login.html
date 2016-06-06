@@ -1,4 +1,4 @@
-<form id="login-form" name="vm.loginForm" ng-submit="vm.loginForm.$valid && vm.sendLogin(vm.login)">
+<form id="login-form" name="vm.loginForm" ng-submit="vm.loginForm.$valid && vm.authorize(vm.login)">
     <alert ng-show="vm.error" ng-click="vm.resetError()">
         <h4>{{ vm.error }}</h4>
     </alert>
@@ -10,4 +10,8 @@
         <input type="password" ng-model="vm.login.password" id="login-password" placeholder="Password" autocomplete="off">
     </div>
     <button type="submit">Login</button>
+</form>
+<form>
+    <button ng-click="vm.authenticate('google')">Login with Google</button>
+    <button ng-click="vm.logoutSat()">Logout</button>
 </form>

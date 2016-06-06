@@ -1,13 +1,12 @@
 class NavbarController {
   	constructor(AuthFactory, $rootScope, AUTH_EVENTS, $state) {
-	  	this.auth = AuthFactory.getLoggedInUser();
 	  	//Dependencies
 	  	this.AuthFactory = AuthFactory;
     	this.$state = $state;
   	}
 
     logout () {
-      this.AuthFactory.logout().then(this.$state.go('home'));
+      	this.AuthFactory.logout().then(this.$state.go('home'));
     }
 };
 
