@@ -3,12 +3,7 @@ const router = require('express').Router();
 const _ = require('lodash');
 module.exports = router;
 
-let ensureAuthenticated = (req, res, next) => {
-    if (req.isAuthenticated()) next();
-    else res.status(401).end();
-};
-
-router.get('/secret-stash', ensureAuthenticated, function (req, res) {
+router.get('/secret-stash', function (req, res) {
 
     const theStash = [
         'http://ep.yimg.com/ay/candy-crate/bulk-candy-store-2.gif',
