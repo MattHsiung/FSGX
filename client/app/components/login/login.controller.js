@@ -12,25 +12,19 @@ class LoginController {
         this.error = null;
     }
 
+//TODO: ACTUALLY SIGNUP WITH EMAIL/PASSWORD
     authorize(loginInfo) {
         this.error = null;
         this.AuthFactory.login(loginInfo)
-            .then((message) => {
-                if(message) this.error = message;
-                else this.$state.go('home');
+            .then(message => {
+                (message) ? this.error = message : this.$state.go('home');
             });
-    }
-
-    logoutSat(){
-        this.$auth.logout()
-        .then(()=> console.log('loggedout'));
     }
 
     authenticate(provider) {
         this.AuthFactory.authenticate(provider)
-            .then((message) => {
-                if(message) this.error = message;
-                else this.$state.go('home');
+            .then(message => {
+                (message) ? this.error = message : this.$state.go('home');
             });
     }
 };

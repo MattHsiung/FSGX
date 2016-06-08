@@ -2,16 +2,16 @@ let AuthFactory = function ($http, $auth) {
 
     let auth = {user: null};
 
-    let isAuthenticated = () => !!auth.user;
+    let isAuthenticated = () => $auth.isAuthenticated();
 
     let getLoggedInUser = () => auth;
 
     let getUser = () => {
         $http.get('/api/me')
             .then(({data}) => auth.user = data)
-            .catch(res => console.log('fail', res));
+            .catch(({data}) => console.log('FAILED: ', data.message));
     };
-
+//TODO: THIS IS ACTUALLY SIGNUP
     let login = (credentials) => {
         return $auth.signup(credentials)
             .then(res => {
@@ -28,8 +28,10 @@ let AuthFactory = function ($http, $auth) {
     };
 
     let logout = () => {
-        return $http.get('/logout')
-            .then(() => auth.user = null);
+        if (!$auth.isAuthenticated()) return;
+        return $auth.logout()
+            .then(() => auth.user = null)
+            .catch(({data}) => data.message );
     };
 
     return { login, logout, getLoggedInUser, getUser, isAuthenticated, authenticate};

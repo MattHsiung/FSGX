@@ -6,7 +6,10 @@ class NavbarController {
   	}
 
     logout () {
-      	this.AuthFactory.logout().then(this.$state.go('home'));
+      	this.AuthFactory.logout()
+      		.then(message => {
+                (message) ? this.error = message : this.$state.go('home');
+            });
     }
 };
 

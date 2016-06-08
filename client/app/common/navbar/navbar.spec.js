@@ -2,6 +2,7 @@ import NavbarModule from './navbar'
 import NavbarController from './navbar.controller';
 import NavbarComponent from './navbar.component';
 import NavbarTemplate from './navbar.html';
+import _ from 'lodash';
 
 describe('Navbar', () => {
   let $rootScope, makeController;
@@ -15,27 +16,27 @@ describe('Navbar', () => {
   }));
 
   describe('Module', () => {
-    // top-level specs: i.e., routes, injection, naming
+    it('injects ui-router', () => {
+      expect(NavbarModule.requires).to.include('ui.router');
+    });
   });
 
   describe('Controller', () => {
-    // controller specs
-    // it('has an auth property', () => { // erase if removing this.name from the controller
-    //   let controller = makeController();
-    //   expect(controller).to.have.property('auth');
-    // });
+    it('should have a logout method', () => {
+      expect(makeController()).to.have.property('logout');
+    });
+    it('logout should be a function', () => {
+      assert.isFunction(makeController().logout);
+    });
   });
 
   describe('Template', () => {
-    // template specs
-    // tip: use regex to ensure correct bindings are used e.g., {{  }}
-    it('has user email in template', () => {
-      expect(NavbarTemplate).to.match(/{{\s?vm\.auth\.user\.email\s?}}/g);
+    it('has user name in template', () => {
+      expect(NavbarTemplate).to.match(/{{\s?vm\.user\.displayName\s?}}/g);
     });
   });
 
   describe('Component', () => {
-      // component/directive specs
       let component = NavbarComponent;
 
       it('includes the intended template',() => {
@@ -48,6 +49,10 @@ describe('Navbar', () => {
 
       it('invokes the right controller', () => {
         expect(component.controller).to.equal(NavbarController);
+      });
+
+      it('binds to user from APP component', () => {
+        expect(component.bindings.user).to.equal('<');
       });
   });
 });
