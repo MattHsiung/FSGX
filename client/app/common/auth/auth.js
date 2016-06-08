@@ -1,12 +1,16 @@
 import angular from 'angular';
 import satellizer from 'satellizer';
 
-let AuthModule = angular.module('Authentication', [
-  'satellizer'
-])
+import AuthFactory from './auth.factory';
 
-.config(($authProvider) => {
+let authModule = angular.module('app.auth', [
+	'satellizer'
+])
+.factory('AuthFactory', AuthFactory)
+
+.config(($authProvider, $httpProvider) => {
 	"ngInject";
+
 	$authProvider.facebook({
       clientId: 'Facebook App ID'
     });
@@ -52,4 +56,4 @@ let AuthModule = angular.module('Authentication', [
     });
 });
 
-export default AuthModule;
+export default authModule;

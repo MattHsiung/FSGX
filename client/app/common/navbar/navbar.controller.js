@@ -1,5 +1,5 @@
 class NavbarController {
-  	constructor(AuthFactory, $rootScope, AUTH_EVENTS, $state) {
+  	constructor(AuthFactory, $state) {
 	  	//Dependencies
 	  	this.AuthFactory = AuthFactory;
     	this.$state = $state;
@@ -10,6 +10,6 @@ class NavbarController {
     }
 };
 
-NavbarController.$inject = ['AuthFactory', '$rootScope', 'AUTH_EVENTS', '$state']
+NavbarController.$inject = ['AuthFactory', '$state']
 
 export default NavbarController;

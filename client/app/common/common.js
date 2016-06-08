@@ -1,13 +1,11 @@
 import angular from 'angular';
 import Navbar from './navbar/navbar';
-import FSA from './fsa/FSA';
-import Authentication from './auth/auth';
+import Auth from './auth/auth';
 import './common.sass';
 
 let commonModule = angular.module('app.common', [
   Navbar.name,
-  FSA.name,
-  Authentication.name
+  Auth.name
 ]);
 
 export default commonModule;

@@ -1,4 +1,4 @@
-let AuthFactory = function ($http, AUTH_EVENTS, $auth) {
+let AuthFactory = function ($http, $auth) {
 
     let auth = {user: null};
 
@@ -35,6 +35,6 @@ let AuthFactory = function ($http, AUTH_EVENTS, $auth) {
     return { login, logout, getLoggedInUser, getUser, isAuthenticated, authenticate};
 };
 
-AuthFactory.$inject = ['$http', 'AUTH_EVENTS', '$auth'];
+AuthFactory.$inject = ['$http', '$auth'];
 
 export default AuthFactory;
