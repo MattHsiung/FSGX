@@ -33,6 +33,3 @@ angular.module('app', [
     
     });
   });
-  //TODO: Fix testing
-  //TODO: Integrate better Auth library
-  //TODO: Make sure sessions work

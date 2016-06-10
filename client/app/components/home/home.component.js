@@ -6,7 +6,9 @@ import './home.sass';
 
 let homeComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {
+  	user: '<'
+  },
   template,
   controller,
   controllerAs: 'vm'

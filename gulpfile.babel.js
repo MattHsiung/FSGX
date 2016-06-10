@@ -14,7 +14,7 @@ import gutil    from 'gulp-util';
 import serve    from 'browser-sync';
 import del      from 'del';
 import webpackDevMiddelware from 'webpack-dev-middleware';
-import webpachHotMiddelware from 'webpack-hot-middleware';
+import webpackHotMiddelware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
 import historyApiFallback   from 'connect-history-api-fallback';
 
@@ -96,7 +96,7 @@ gulp.task('serve', ['todo'], () => {
         },
         publicPath: config.output.publicPath
       }),
-      webpachHotMiddelware(compiler)
+      webpackHotMiddelware(compiler)
     ]
   });
 });

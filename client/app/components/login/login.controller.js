@@ -1,7 +1,8 @@
 class LoginController {
     constructor (AuthFactory, $state, $auth) {
         this.error = null;
-        this.login = {displayName:'matt'};
+        this.loginInfo = {};
+        this.signupInfo = {};
         //Dependencies
         this.AuthFactory = AuthFactory;
         this.$state = $state;
@@ -12,10 +13,9 @@ class LoginController {
         this.error = null;
     }
 
-//TODO: ACTUALLY SIGNUP WITH EMAIL/PASSWORD
-    authorize(loginInfo) {
+    signup(signupInfo) {
         this.error = null;
-        this.AuthFactory.login(loginInfo)
+        this.AuthFactory.signup(signupInfo)
             .then(message => {
                 (message) ? this.error = message : this.$state.go('home');
             });

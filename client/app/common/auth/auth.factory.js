@@ -11,8 +11,10 @@ let AuthFactory = function ($http, $auth) {
             .then(({data}) => auth.user = data)
             .catch(({data}) => console.log('FAILED: ', data.message));
     };
-//TODO: THIS IS ACTUALLY SIGNUP
-    let login = (credentials) => {
+    //TODO: LOGIN METHOD
+    //TODO: UNLINK
+
+    let signup = (credentials) => {
         return $auth.signup(credentials)
             .then(res => {
                 $auth.setToken(res);
@@ -34,7 +36,7 @@ let AuthFactory = function ($http, $auth) {
             .catch(({data}) => data.message );
     };
 
-    return { login, logout, getLoggedInUser, getUser, isAuthenticated, authenticate};
+    return { signup, logout, getLoggedInUser, getUser, isAuthenticated, authenticate};
 };
 
 AuthFactory.$inject = ['$http', '$auth'];
