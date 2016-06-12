@@ -217,7 +217,7 @@ module.exports = function (app) {
       client_secret: config.GITHUB_SECRET,
       redirect_uri: req.body.redirectUri
     };
-
+    
     // Step 1. Exchange authorization code for access token.
     request.get({ url: accessTokenUrl, qs: params }, function(err, response, accessToken) {
       accessToken = qs.parse(accessToken);

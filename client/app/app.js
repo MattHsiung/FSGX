@@ -9,27 +9,34 @@ import './app.sass';
 import './deleteMe.sass';
 
 angular.module('app', [
-    uiRouter,
-    Common.name,
-    Components.name
-  ])
-  .config(($urlRouterProvider, $locationProvider) => {
-    "ngInject";
-    $locationProvider.html5Mode(true).hashPrefix('!');
-    $urlRouterProvider.otherwise('/');
-    $urlRouterProvider.when('/auth/:provider', () => window.location.reload());
-  })
+  uiRouter,
+  Common.name,
+  Components.name
+])
+.config(($urlRouterProvider, $locationProvider) => {
+  "ngInject";
+  $locationProvider.html5Mode(true).hashPrefix('!');
+  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.when('/auth/:provider', () => window.location.reload());
+})
 
-  .component('app', AppComponent)
+.component('app', AppComponent)
 
-  .run(function ($rootScope, AuthFactory, $state) {
-    "ngInject";
-    $rootScope.$on('$stateChangeStart', (event, toState, toParams) => {
+.run(function ($rootScope, AuthFactory, $state) {
+  "ngInject";
+  $rootScope.$on('$stateChangeStart', (event, toState, toParams) => {
 
-      if (toState.requireAuth && !AuthFactory.isAuthenticated()){
-        $state.go("login");
-        event.preventDefault();
-      };
-    
-    });
+    if (toState.requireAuth && !AuthFactory.isAuthenticated()){
+      $state.go("login");
+      event.preventDefault();
+    };
+  
   });
+});
+
+//TODO: SERVER TESTS
+//TODO: CSS EXTRACT SUPPORT
+//TODO: DEVELOPOMENT MODE
+//TODO: OPTIMIZE WEBPACK
+//TODO: REVIEW COMPONENT TEMPLATES
+//TODO: SEED FILE

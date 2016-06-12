@@ -11,8 +11,24 @@ let AuthFactory = function ($http, $auth) {
             .then(({data}) => auth.user = data)
             .catch(({data}) => console.log('FAILED: ', data.message));
     };
-    //TODO: LOGIN METHOD
-    //TODO: UNLINK
+
+    let login = (credentials) => {
+        return $auth.login(credentials)
+            .then(getUser)
+            .catch(({data}) => data.message );
+    };    
+
+    let unlink = (provider) => {
+      return $auth.unlink(provider)
+        .then()
+        .catch(({data}) => data.message );
+    };
+    
+    let link = (provider) => {
+      return $auth.link(provider)
+        .then()
+        .catch(({data}) => data.message );
+    };
 
     let signup = (credentials) => {
         return $auth.signup(credentials)
@@ -36,7 +52,7 @@ let AuthFactory = function ($http, $auth) {
             .catch(({data}) => data.message );
     };
 
-    return { signup, logout, getLoggedInUser, getUser, isAuthenticated, authenticate};
+    return { signup, login, logout, link, unlink, getLoggedInUser, getUser, isAuthenticated, authenticate};
 };
 
 AuthFactory.$inject = ['$http', '$auth'];

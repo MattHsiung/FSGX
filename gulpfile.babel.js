@@ -13,6 +13,7 @@ import lodash   from 'lodash';
 import gutil    from 'gulp-util';
 import serve    from 'browser-sync';
 import del      from 'del';
+import mocha    from 'gulp-mocha';
 import webpackDevMiddelware from 'webpack-dev-middleware';
 import webpackHotMiddelware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
@@ -126,6 +127,14 @@ gulp.task('clean', (cb) => {
     gutil.log("[clean]", paths);
     cb();
   })
+});
+
+gulp.task('testServer', () => {
+  return gulp.src('./tests/server/**/*.js', {
+    read: false
+  })
+  .pipe(mocha({ reporter: 'spec' }))
+  .once('end', process.exit);
 });
 
 gulp.task('default', ['watch']);

@@ -15,27 +15,21 @@ describe('Home', () => {
   }));
 
   describe('Module', () => {
-    // top-level specs: i.e., routes, injection, naming
+    
   });
 
   describe('Controller', () => {
-    // controller specs
-    // it('has an auth property', () => { 
-    //   let controller = makeController();
-    //   expect(controller).to.have.property('auth');
-    // });
+    
   });
 
   describe('Template', () => {
-    // template specs
-    // tip: use regex to ensure correct bindings are used e.g., {{  }}
     it('has user email in template', () => {
-      expect(HomeTemplate).to.match(/{{\s?vm\.auth\.user\.email\s?}}/g);
+      expect(HomeTemplate).to.match(/{{\s?vm\.user\.displayName\s?}}/g);
     });
   });
 
   describe('Component', () => {
-      // component/directive specs
+    
       let component = HomeComponent;
 
       it('includes the intended template',() => {

@@ -13,6 +13,14 @@ class LoginController {
         this.error = null;
     }
 
+    login(loginInfo) {
+        this.error = null;
+        this.AuthFactory.login(loginInfo)
+            .then(message => {
+                (message) ? this.error = message : this.$state.go('home');
+            });
+    }
+
     signup(signupInfo) {
         this.error = null;
         this.AuthFactory.signup(signupInfo)

@@ -20,7 +20,7 @@ let authModule = angular.module('app.auth', [
     });
 
     $authProvider.github({
-      clientId: 'GitHub Client ID'
+      clientId: '7352078c8930fa6e589c'
     });
 
     $authProvider.linkedin({

@@ -12,6 +12,8 @@ module.exports = {
         { test: /\.jade$/, loader: "raw!jade-html" },
         { test: /\.sass$/, loader: 'style!css!sass' },
         { test: /\.css$/, loader: 'style!css' }
+        //TODO: IMAGE LOADER?
+        //TODO: EXTRACT CSS
     ]
   },
   plugins: [

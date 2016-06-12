@@ -1,8 +1,8 @@
 'use strict';
-var mongoose = require('mongoose');
-var bcrypt = require('bcryptjs');
+import mongoose from 'mongoose';
+import bcrypt   from 'bcryptjs';
 
-var userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   email: { type: String, unique: true, lowercase: true },
   password: { type: String, select: false },
   displayName: String,
@@ -21,7 +21,7 @@ var userSchema = new mongoose.Schema({
 });
 
 userSchema.pre('save', function(next) {
-  var user = this;
+  const user = this;
   if (!user.isModified('password')) {
     return next();
   }
@@ -39,4 +39,4 @@ userSchema.methods.comparePassword = function(password, done) {
   });
 };
 
-var User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
