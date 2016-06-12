@@ -9,5 +9,5 @@ const router = require('express').Router();
 module.exports = router;
 
 router.get('/secret-stash', ensureAuthenticated, (req, res) => {
-    res.send('secret-stash');
+    res.send('https://media.giphy.com/media/FHRZIvoGB8WME/giphy.gif');
 });

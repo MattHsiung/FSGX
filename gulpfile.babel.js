@@ -129,7 +129,7 @@ gulp.task('clean', (cb) => {
   })
 });
 
-gulp.task('testServer', () => {
+gulp.task('test', () => {
   return gulp.src('./server/tests/**/*.js', {
     read: false
   })

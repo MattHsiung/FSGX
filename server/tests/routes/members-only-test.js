@@ -63,12 +63,12 @@ describe('Members Route', () => {
 	      .end(done);
 		});
 
-		it('should get with 200 response and with an array as the body', (done) => {
+		it('should get with 200 response and with a gif link', (done) => {
 			agent
 				.get('/api/members/secret-stash')
 				.set(AUTH_HEADER)
 				.expect(200)
-				.expect('secret-stash')
+				.expect('https://media.giphy.com/media/FHRZIvoGB8WME/giphy.gif')
 				.end(done);
 		});
 	});

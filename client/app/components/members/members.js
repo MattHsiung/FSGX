@@ -1,9 +1,11 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import './members.sass';
+import secretStash from './secretStash/secretStash'
 
 let membersModule = angular.module('members', [
-  uiRouter
+  uiRouter,
+  secretStash.name
 ])
 
 .config(($stateProvider) => {
@@ -13,8 +15,7 @@ let membersModule = angular.module('members', [
         	url: '/members-area',
         	template: `
         	<div class="members">
-        		<img src="https://media.giphy.com/media/FqdGGgugkC4Xm/giphy.gif">
-        		<h1>GET CODING</h1>
+                <Secret-Stash>
         	</div>`,
 	        requireAuth: true
     	});

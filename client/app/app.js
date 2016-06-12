@@ -30,12 +30,9 @@ angular.module('app', [
       $state.go("login");
       event.preventDefault();
     };
-  
   });
 });
 
 //TODO: CSS EXTRACT SUPPORT
 //TODO: DEVELOPOMENT MODE
 //TODO: OPTIMIZE WEBPACK
-//TODO: REVIEW COMPONENT TEMPLATES
-//TODO: DIRECTIVE TEMPLATE?
