@@ -1,4 +1,5 @@
-import template from './<%= name %>.jade';
+// import template from './<%= name %>.jade';
+import template from './<%= name %>.html';
 import controller from './<%= name %>.controller';
 import './<%= name %>.sass';
 

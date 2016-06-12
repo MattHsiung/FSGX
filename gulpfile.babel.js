@@ -130,7 +130,7 @@ gulp.task('clean', (cb) => {
 });
 
 gulp.task('testServer', () => {
-  return gulp.src('./tests/server/**/*.js', {
+  return gulp.src('./server/tests/**/*.js', {
     read: false
   })
   .pipe(mocha({ reporter: 'spec' }))

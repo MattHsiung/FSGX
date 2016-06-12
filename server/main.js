@@ -1,29 +1,25 @@
 'use strict';
-var chalk = require('chalk');
+import chalk   from 'chalk';
+import startDb from './db';
+import app     from './app';
 
-// Requires in ./db/index.js -- which returns a promise that represents
-// mongoose establishing a connection to a MongoDB database.
-var startDb = require('./db');
+const server = require('http').createServer();
 
-// Create a node server instance! cOoL!
-var server = require('http').createServer();
-
-var createApplication = function () {
-    var app = require('./app');
-    server.on('request', app); // Attach the Express application.
+const createApplication = () => {
+  server.on('request', app);
 };
 
-var startServer = function () {
-
-    var PORT = process.env.PORT || 9000;
-
-    server.listen(PORT, function () {
-        console.log(chalk.blue('Server is over 900000000000', chalk.magenta(PORT)));
-    });
-
+const startServer = () => {
+  const PORT = process.env.PORT || 9000;
+  server.listen(PORT, () => {
+    console.log(chalk.blue('Server is over 900000000000', chalk.magenta(PORT)));
+  });
 };
 
-startDb.then(createApplication).then(startServer).catch(function (err) {
-    console.error(chalk.red(err.stack));
+startDb
+	.then(createApplication)
+	.then(startServer)
+	.catch( err => {
+	  console.error(chalk.red(err.stack));
     process.kill(1);
-});
+	});

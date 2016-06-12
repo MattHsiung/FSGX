@@ -3,9 +3,14 @@
   "version": "0.0.1",
   "description": "Starter for Angular + ES6 + (Webpack or JSPM)",
   "main": "index.js",
+  "babel": {
+    "plugins": ["transform-runtime"],
+    "presets": ["es2015", "stage-0"]
+  },
   "scripts": {
-    "start": "nodemon --watch server -e js,html server/start.js",
-    "test": "karma start"
+    "start": "nodemon --watch server -e js server/start.js",
+    "test": "karma start",
+    "seed": "server/seedDB.js"
   },
   "dependencies": {
     "angular": "^1.5.0",

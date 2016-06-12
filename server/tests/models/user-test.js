@@ -1,13 +1,12 @@
 'use strict';
-const dbURI = 'mongodb://localhost:27017/testingDB';
-const clearDB = require('mocha-mongoose')(dbURI);
-
+import mongoose from 'mongoose';
 import sinon    from 'sinon';
 import {expect} from 'chai';
-import mongoose from 'mongoose';
-import '../../../server/db/models';
+import '../../db/models';
 
-const User = mongoose.model('User');
+const dbURI   = 'mongodb://localhost:27017/testingDB';
+const clearDB = require('mocha-mongoose')(dbURI);
+const User    = mongoose.model('User');
 
 const obama = { 
   displayName: 'Barack Obama',

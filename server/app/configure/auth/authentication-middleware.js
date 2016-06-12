@@ -3,51 +3,27 @@
  * (c) 2015 Sahat Yalkabov
  * License: MIT
  */
+import path     from 'path';
+import qs       from 'querystring';
+import async    from 'async';
+import colors   from 'colors';
+import cors     from 'cors';
+import express  from 'express';
+import log      from 'morgan';
+import jwt      from 'jwt-simple';
+import moment   from 'moment';
+import request  from 'request';
+import config   from './config';
+import mongoose from 'mongoose';
+import {ensureAuthenticated} from './authentication-helpers'
 
-const path = require('path');
-const qs = require('querystring');
-const async = require('async');
-const colors = require('colors');
-const cors = require('cors');
-const express = require('express');
-const log = require('morgan');
-const jwt = require('jwt-simple');
-const moment = require('moment');
-const request = require('request');
-const config = require('./config');
-const mongoose = require('mongoose');
+
 const User = mongoose.model('User');
 
 module.exports = function (app) {
 
   app.use(cors());
   app.use(log('dev'));
-
-/*
- |--------------------------------------------------------------------------
- | Login Required Middleware
- |--------------------------------------------------------------------------
- */
-  function ensureAuthenticated(req, res, next) {
-    if (!req.header('Authorization')) {
-      return res.status(401).send({ message: 'Please make sure your request has an Authorization header' });
-    }
-    var token = req.header('Authorization').split(' ')[1];
-
-    var payload = null;
-    try {
-      payload = jwt.decode(token, config.TOKEN_SECRET);
-    }
-    catch (err) {
-      return res.status(401).send({ message: err.message });
-    }
-
-    if (payload.exp <= moment().unix()) {
-      return res.status(401).send({ message: 'Token has expired' });
-    }
-    req.user = payload.sub;
-    next();
-  }
 
 /*
  |--------------------------------------------------------------------------
