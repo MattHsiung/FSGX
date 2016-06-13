@@ -3,7 +3,7 @@ const path = require('path');
 const chalk = require('chalk');
 const util = require('util');
 
-const indexPath = path.join(__dirname, '../../../', './client/index.html');
+const indexPath = path.join(__dirname, '../../../', './dist/index.html');
 const config = require('./auth/config.js');
 
 const logMiddleware = (req, res, next) => {

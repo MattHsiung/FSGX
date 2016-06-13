@@ -1,6 +1,5 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import io from 'socket.io-client';
 import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
@@ -32,7 +31,3 @@ angular.module('app', [
     };
   });
 });
-
-//TODO: CSS EXTRACT SUPPORT
-//TODO: DEVELOPOMENT MODE
-//TODO: OPTIMIZE WEBPACK

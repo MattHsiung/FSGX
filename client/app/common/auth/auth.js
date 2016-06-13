@@ -16,11 +16,11 @@ let authModule = angular.module('app.auth', [
     });
 
     $authProvider.google({
-      clientId: '666549905491-8eftphb9rc69s9u2uc591b0dm0ig5k7m.apps.googleusercontent.com'
+      clientId: 'Google Client ID'
     });
 
     $authProvider.github({
-      clientId: '7352078c8930fa6e589c'
+      clientId: 'Github Client ID'
     });
 
     $authProvider.linkedin({
